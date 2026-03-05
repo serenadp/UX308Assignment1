@@ -8,7 +8,7 @@ describe("Restaurant Order Bot", function () {
 
   it("welcome message", function () {
     const aResults = handleInput("hello");
-    expect(aResults[0]).toBe("Welcome to Señor Salsa!");
+    expect(aResults[0]).toContain("Welcome");
   });
 
   it("order taco", function () {

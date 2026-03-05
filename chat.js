@@ -1,4 +1,4 @@
-import { handleInput } from "./Order.js"
+import { handleInput, clearInput } from "./Order.js"
 
 class Chat extends HTMLElement {
   sendMessage(evt) {
