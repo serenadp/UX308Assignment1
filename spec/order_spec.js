@@ -1,22 +1,29 @@
 import { handleInput, clearInput } from '../Order.js';
 
-describe("Tests all stages of an order", function () {
-    beforeEach(function () {
-        clearInput();
-    });
-    it("test hello", function () {
-        const aResults = handleInput("hello");
-        expect(aResults[0]).toBe("Welcome to Rich's Acton Rapid Test.");
-    });
-    it("test yes", function () {
-        handleInput("hello");
-        const aResults = handleInput("yes");
-        expect(aResults[0]).toBe("Your rapid test is reserved");
-    });
-    it("test no", function () {
-        handleInput("hello");
-        const aResults = handleInput("no");
-        expect(aResults[0]).toBe("Thanks for trying our reservation system");
-    });
-});
+describe("Restaurant Order Bot", function () {
 
+  beforeEach(function () {
+    clearInput();
+  });
+
+  it("welcome message", function () {
+    const aResults = handleInput("hello");
+    expect(aResults[0]).toBe("Welcome to Señor Salsa!");
+  });
+
+  it("order taco", function () {
+    handleInput("hello");
+    const aResults = handleInput("taco");
+    expect(aResults[0]).toContain("size taco");
+  });
+
+  it("drink upsell", function () {
+    handleInput("hello");
+    handleInput("taco");
+    handleInput("small");
+    handleInput("chicken");
+    const aResults = handleInput("coke");
+    expect(aResults[1]).toContain("confirmed");
+  });
+
+});
