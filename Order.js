@@ -54,7 +54,7 @@ function choosingFilling(sInput) {
   let aReturn = [];
   currentState = upsellDrink;
 
-  aReturn.push("Would you like a drink? (yes / no, coke, sprite)");
+  aReturn.push("Would you like a drink? (coke, sprite)");
   return aReturn;
 }
 
